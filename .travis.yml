@@ -6,7 +6,7 @@ services:
   - memcache
   - docker
 
-env: PHPAR_MYSQL=mysql://root@127.0.0.1/phpar_test PHPAR_PGSQL=pgsql://postgres@127.0.0.1/phpar_test Test__SqlServer__DefaultConnection='Server=localhost;User ID=sa;Password=DockerPassword123;Database=master;Connect Timeout=30'
+env: PHPAR_MYSQL=mysql://root@127.0.0.1/phpar_test PHPAR_PGSQL=pgsql://postgres@127.0.0.1/phpar_test PHPAR_MSSQL='Server=localhost;User ID=sa;Password=DockerPassword123;Database=master;Connect Timeout=30'
 
 language: php
 php:
@@ -41,6 +41,6 @@ before_script:
   
   - mysql -e 'CREATE DATABASE phpar_test;'
   - psql -c 'CREATE DATABASE phpar_test;' -U postgres
-  - ./tools/launch-mssql-in-docker.sh -p "$MSSQL_PWD";
+  - ./test/launch-mssql-in-docker.sh -p "$MSSQL_PWD";
 
 script: ./vendor/bin/phpunit --verbose
