@@ -6,12 +6,7 @@ services:
   - memcache
   - docker
 
-env:
-  matrix:
-    - TestGroup=SqlServer
-      MSSQL_PWD=DockerPassword123
-      Test__SqlServer__DefaultConnection='Server=localhost;User ID=sa;Password=DockerPassword123;Database=master;Connect Timeout=30'
-  global: PHPAR_MYSQL=mysql://root@127.0.0.1/phpar_test PHPAR_PGSQL=pgsql://postgres@127.0.0.1/phpar_test
+env: PHPAR_MYSQL=mysql://root@127.0.0.1/phpar_test PHPAR_PGSQL=pgsql://postgres@127.0.0.1/phpar_test Test__SqlServer__DefaultConnection='Server=localhost;User ID=sa;Password=DockerPassword123;Database=master;Connect Timeout=30'
 
 language: php
 php:
