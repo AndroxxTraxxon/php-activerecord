@@ -39,4 +39,4 @@ before_script:
   - mysql -e 'CREATE DATABASE phpar_test;'
   - psql -c 'CREATE DATABASE phpar_test;' -U postgres
 
-script: ./vendor/bin/phpunit
+script: ./vendor/bin/phpunit --verbose
