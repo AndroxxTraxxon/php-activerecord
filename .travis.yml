@@ -41,6 +41,6 @@ before_script:
   
   - mysql -e 'CREATE DATABASE phpar_test;'
   - psql -c 'CREATE DATABASE phpar_test;' -U postgres
-  - if [ "$TestGroup" = "SqlServer" ]; then ./tools/launch-mssql-in-docker.sh -p "$MSSQL_PWD"; fi
+  - ./tools/launch-mssql-in-docker.sh -p "$MSSQL_PWD";
 
 script: ./vendor/bin/phpunit --verbose
